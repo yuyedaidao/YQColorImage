@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import YQColorImage
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let image =  UIColor.red.circleImage(with: 12)
+        let imgView = UIImageView(image: image)
+        imgView.sizeToFit()
+        self.view.addSubview(imgView)
+        
+        let circle = UIColor.blue.transparentCircleImage(with: 30)
+        let imgView1 = UIImageView(image: circle)
+        imgView1.sizeToFit()
+        self.view.addSubview(imgView1)
     }
 
     override func didReceiveMemoryWarning() {

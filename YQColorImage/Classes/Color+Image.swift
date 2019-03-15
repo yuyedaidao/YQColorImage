@@ -32,19 +32,19 @@ extension UIColor {
     ///   - radius: 圆形半径
     ///   - border: 圆形到边的宽度
     /// - Returns: image
-    func transparentCircleImage(with radius:CGFloat) -> UIImage {
+    func transparentCircleImage(with radius:CGFloat, border: CGFloat = 2) -> UIImage {
       
         let width = radius * 2
-        let size =  CGSize(width: width, height: width)
+        let size =  CGSize(width: width + 2 * border, height: width + 2 * border)
         let rect = CGRect(origin: CGPoint.zero, size: size)
-        UIGraphicsBeginImageContextWithOptions(size, true, UIScreen.main.scale)
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
         let context = UIGraphicsGetCurrentContext()
-        let path = UIBezierPath(rect: rect)
-        let clipPath = UIBezierPath(roundedRect: rect, cornerRadius: radius).reversing()
-        path.append(clipPath)
-        context?.addPath(path.cgPath)
         setFill()
-        context?.fillPath()
+        context?.fill(rect)
+        let circleRect = CGRect(x: border, y: border, width: width, height: width)
+        context?.addEllipse(in: circleRect)
+        context?.clip()
+        context?.clear(circleRect)
         let image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return image
