@@ -1,0 +1,16 @@
+PODS:
+  - YQColorImage (0.1.0)
+
+DEPENDENCIES:
+  - YQColorImage (from `../`)
+
+EXTERNAL SOURCES:
+  YQColorImage:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  YQColorImage: f595b588422b6c2b2ab872de68696ebf1c1c6c64
+
+PODFILE CHECKSUM: 56e6b475156da16090dd4de477ba138a674548a0
+
+COCOAPODS: 1.7.0.beta.1

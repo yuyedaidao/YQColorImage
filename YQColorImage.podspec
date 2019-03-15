@@ -19,20 +19,16 @@ Pod::Spec.new do |s|
 
   s.description      = '畅媒未来版公共模块-YQColorImage'
 
-  s.homepage         = 'https://github.com/iqilu/YQColorImage'
+  s.homepage         = 'https://github.com/yuyedaidao/YQColorImage'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'wyqpadding@gmail.com' => 'wyqpadding@gmail.com' }
-  s.source           = { :git => 'https://github.com/iqilu/YQColorImage.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/yuyedaidao/YQColorImage.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
 
   s.source_files = 'YQColorImage/Classes/**/*'
-  
-  s.resource_bundles = {
-    'YQColorImage' => ['YQColorImage/Assets/*.png']
-  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

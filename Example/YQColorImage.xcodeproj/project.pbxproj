@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55C7D57F223B4EAC00C0492F /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 55C7D57C223B4EAC00C0492F /* .gitkeep */; };
+		55C7D580223B4EAC00C0492F /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 55C7D57E223B4EAC00C0492F /* .gitkeep */; };
+		55C7D582223B4EC500C0492F /* Color+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C7D581223B4EC500C0492F /* Color+Image.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -30,6 +33,9 @@
 /* Begin PBXFileReference section */
 		4625AA4F8B8063A6513FC793 /* Pods-YQColorImage_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQColorImage_Tests.debug.xcconfig"; path = "Target Support Files/Pods-YQColorImage_Tests/Pods-YQColorImage_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		51C2E78CA6DB32215AF8BD83 /* Pods_YQColorImage_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YQColorImage_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55C7D57C223B4EAC00C0492F /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		55C7D57E223B4EAC00C0492F /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		55C7D581223B4EC500C0492F /* Color+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Image.swift"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* YQColorImage_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YQColorImage_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,11 +48,11 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		95D3E11F4A689FC433E6696A /* Pods-YQColorImage_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQColorImage_Tests.release.xcconfig"; path = "Target Support Files/Pods-YQColorImage_Tests/Pods-YQColorImage_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		97F4AA75754C2D57F5806400 /* Pods-YQColorImage_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQColorImage_Example.release.xcconfig"; path = "Target Support Files/Pods-YQColorImage_Example/Pods-YQColorImage_Example.release.xcconfig"; sourceTree = "<group>"; };
-		A269A0721952CEF320FE11B4 /* YQColorImage.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = YQColorImage.podspec; path = ../YQColorImage.podspec; sourceTree = "<group>"; };
+		A269A0721952CEF320FE11B4 /* YQColorImage.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YQColorImage.podspec; path = ../YQColorImage.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BF455A6620490C980DAEF604 /* Pods-YQColorImage_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQColorImage_Example.debug.xcconfig"; path = "Target Support Files/Pods-YQColorImage_Example/Pods-YQColorImage_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		CFA5B8A24B7C15C281A6563F /* Pods_YQColorImage_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YQColorImage_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E7B1661A8423ED9F3977950A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		F7E4F43DDC2B4CE4BDCBD610 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		E7B1661A8423ED9F3977950A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		F7E4F43DDC2B4CE4BDCBD610 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,13 +83,40 @@
 				4625AA4F8B8063A6513FC793 /* Pods-YQColorImage_Tests.debug.xcconfig */,
 				95D3E11F4A689FC433E6696A /* Pods-YQColorImage_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		55C7D57A223B4EAC00C0492F /* YQColorImage */ = {
+			isa = PBXGroup;
+			children = (
+				55C7D57B223B4EAC00C0492F /* Classes */,
+				55C7D57D223B4EAC00C0492F /* Assets */,
+			);
+			name = YQColorImage;
+			path = ../YQColorImage;
+			sourceTree = "<group>";
+		};
+		55C7D57B223B4EAC00C0492F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				55C7D57C223B4EAC00C0492F /* .gitkeep */,
+				55C7D581223B4EC500C0492F /* Color+Image.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		55C7D57D223B4EAC00C0492F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				55C7D57E223B4EAC00C0492F /* .gitkeep */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				55C7D57A223B4EAC00C0492F /* YQColorImage */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for YQColorImage */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -213,10 +246,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = QXPHWM9EW2;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = QXPHWM9EW2;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -248,7 +283,9 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				55C7D580223B4EAC00C0492F /* .gitkeep in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				55C7D57F223B4EAC00C0492F /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +370,7 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				55C7D582223B4EC500C0492F /* Color+Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
