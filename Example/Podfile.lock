@@ -1,5 +1,5 @@
 PODS:
-  - YQColorImage (0.1.0)
+  - YQColorImage (0.1.1)
 
 DEPENDENCIES:
   - YQColorImage (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  YQColorImage: 5d5f5afe7063bb8f773c32b30a0f0c62a314b95c
+  YQColorImage: 4c11fc8b67e0c2848eb1bd992e62046c79278fd5
 
 PODFILE CHECKSUM: 56e6b475156da16090dd4de477ba138a674548a0
 

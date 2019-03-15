@@ -14,7 +14,7 @@ extension UIColor {
     ///
     /// - Parameter radius: 半径
     /// - Returns: Image
-    func circleImage(with radius: CGFloat) -> UIImage {
+    open func circleImage(with radius: CGFloat) -> UIImage {
         let width = radius * 2
         UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: width), false, UIScreen.main.scale)
         let context = UIGraphicsGetCurrentContext()
@@ -32,7 +32,7 @@ extension UIColor {
     ///   - radius: 圆形半径
     ///   - border: 圆形到边的宽度
     /// - Returns: image
-    func transparentCircleImage(with radius:CGFloat, border: CGFloat = 2) -> UIImage {
+    open func transparentCircleImage(with radius:CGFloat, border: CGFloat = 2) -> UIImage {
       
         let width = radius * 2
         let size =  CGSize(width: width + 2 * border, height: width + 2 * border)
@@ -56,7 +56,7 @@ extension UIColor {
     ///   - size: 图片大小
     ///   - radius: 圆角大小
     /// - Returns: Image
-    func roundImage(width size: CGSize, radius: CGFloat = 0) -> UIImage {
+    open func roundImage(width size: CGSize, radius: CGFloat = 0) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
         let context = UIGraphicsGetCurrentContext()
         setFill()
