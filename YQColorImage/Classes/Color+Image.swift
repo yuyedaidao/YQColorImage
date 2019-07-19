@@ -39,6 +39,8 @@ extension UIColor {
         let rect = CGRect(origin: CGPoint.zero, size: size)
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
         let context = UIGraphicsGetCurrentContext()
+        //取消抗锯齿 。。。额，取消之后反而出来的图比较顺滑
+        context?.setShouldAntialias(false)
         setFill()
         context?.fill(rect)
         let circleRect = CGRect(x: border, y: border, width: width, height: width)
@@ -47,7 +49,7 @@ extension UIColor {
         context?.clear(circleRect)
         let image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-        return image
+        return  image.resizableImage(withCapInsets: UIEdgeInsets(top: radius, left: radius, bottom: radius, right: radius))
     }
     
     /// 方形图片
