@@ -32,7 +32,7 @@ extension UIColor {
     ///   - radius: 圆形半径
     ///   - border: 圆形到边的宽度
     /// - Returns: image
-    open func transparentCircleImage(with radius:CGFloat, border: CGFloat = 2) -> UIImage {
+    open func transparentCircleImage(with radius:CGFloat, border: CGFloat = 2, antialias: Bool = true) -> UIImage {
       
         let width = radius * 2
         let size =  CGSize(width: width + 2 * border, height: width + 2 * border)
@@ -40,7 +40,7 @@ extension UIColor {
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
         let context = UIGraphicsGetCurrentContext()
         //取消抗锯齿 。。。额，取消之后反而出来的图比较顺滑
-        context?.setShouldAntialias(false)
+        context?.setShouldAntialias(antialias)
         setFill()
         context?.fill(rect)
         let circleRect = CGRect(x: border, y: border, width: width, height: width)
@@ -49,16 +49,32 @@ extension UIColor {
         context?.clear(circleRect)
         let image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
+        return  image
+    }
+    open func transparentRectangleImage(with size: CGSize, border: CGFloat = 2, radius: CGFloat = 0, antialias: Bool = true) -> UIImage {
+        let newSize =  CGSize(width: size.width + 2 * border, height: size.height + 2 * border)
+        let rect = CGRect(origin: CGPoint.zero, size: newSize)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, UIScreen.main.scale)
+        let context = UIGraphicsGetCurrentContext()
+        //取消抗锯齿 。。。额，取消之后反而出来的图比较顺滑
+        context?.setShouldAntialias(antialias)
+        setFill()
+        context?.fill(rect)
+        let path = UIBezierPath(roundedRect: CGRect(origin: CGPoint(x: border, y: border), size: size), cornerRadius: radius)
+        context?.addPath(path.cgPath)
+        context?.clip()
+        context?.clear(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
         return  image.resizableImage(withCapInsets: UIEdgeInsets(top: radius, left: radius, bottom: radius, right: radius))
     }
-    
     /// 方形图片
     ///
     /// - Parameters:
     ///   - size: 图片大小
     ///   - radius: 圆角大小
     /// - Returns: Image
-    open func roundImage(width size: CGSize, radius: CGFloat = 0) -> UIImage {
+    open func rectangleImage(width size: CGSize, radius: CGFloat = 0) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
         let context = UIGraphicsGetCurrentContext()
         setFill()

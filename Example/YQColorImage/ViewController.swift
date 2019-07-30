@@ -23,6 +23,11 @@ class ViewController: UIViewController {
         let imgView1 = UIImageView(image: circle)
         imgView1.sizeToFit()
         self.view.addSubview(imgView1)
+        
+        let rectangle = UIColor.green.transparentRectangleImage(with: CGSize(width: 100, height: 60),border: 6, radius: 8)
+        let imgView2 = UIImageView(image: rectangle)
+        imgView2.sizeToFit()
+        self.view.addSubview(imgView2)
     }
 
     override func didReceiveMemoryWarning() {
