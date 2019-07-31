@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YQColorImage'
-  s.version          = '0.1.4'
+  s.version          = '0.1.5'
   s.summary          = 'YQColorImage.'
 
 # This description is used to generate tags and improve search results.
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
-  s.swift_versions = '4.2'
+  s.swift_versions = '5.0'
   s.source_files = 'YQColorImage/Classes/**/*'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'

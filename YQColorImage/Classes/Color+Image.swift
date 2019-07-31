@@ -66,7 +66,7 @@ extension UIColor {
         context?.clear(rect)
         let image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-        return  image.resizableImage(withCapInsets: UIEdgeInsets(top: radius, left: radius, bottom: radius, right: radius))
+        return  image.resizableImage(withCapInsets: UIEdgeInsets(top: border + radius, left: border + radius, bottom: border + radius, right: border + radius))
     }
     /// 方形图片
     ///
