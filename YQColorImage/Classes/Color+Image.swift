@@ -74,19 +74,47 @@ extension UIColor {
     ///   - size: 图片大小
     ///   - radius: 圆角大小
     /// - Returns: Image
-    open func rectangleImage(width size: CGSize, radius: CGFloat = 0) -> UIImage {
+    open func rectangleImage(width size: CGSize, radius: CGFloat = 0, shadowOffset: CGSize = CGSize(width: 3, height: 3), shadowBlur: CGFloat = 3, shadowColor: UIColor? = nil) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
-        let context = UIGraphicsGetCurrentContext()
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return UIImage()
+        }
         setFill()
-        let rect = CGRect(origin: CGPoint.zero, size: size)
+        var edgeInsets = UIEdgeInsets.zero
+        let blur = shadowBlur / 2
+        if shadowOffset.width < 0 {
+            edgeInsets.left = abs(shadowOffset.width) + blur
+            let right = shadowOffset.width + blur
+            edgeInsets.right = right > 0 ? right : 0
+        } else {
+            let left = blur - shadowOffset.width
+            edgeInsets.left = left > 0 ? left : 0
+            edgeInsets.right = shadowOffset.width + blur
+        }
+        
+        if shadowOffset.height < 0 {
+            edgeInsets.top = abs(shadowOffset.height) + blur
+            let bottom = shadowOffset.height + blur
+            edgeInsets.bottom = bottom > 0 ? bottom : 0
+        } else {
+            let top = blur - shadowOffset.height
+            edgeInsets.top = top > 0 ? top : 0
+            edgeInsets.bottom = shadowOffset.height + blur
+        }
+        let rect = CGRect(origin: CGPoint.zero, size: size).inset(by: edgeInsets)
+        if let shadowColor = shadowColor {
+            context.setShadow(offset: shadowOffset, blur: shadowBlur, color: shadowColor.cgColor)
+        }
         if radius == 0 {
-            context?.fill(rect)
+            context.fill(rect)
         } else {
             let path = UIBezierPath(roundedRect: rect, cornerRadius: radius)
-            context?.addPath(path.cgPath)
-            context?.fillPath()
+            context.addPath(path.cgPath)
+            context.fillPath()
         }
-        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        guard let image = UIGraphicsGetImageFromCurrentImageContext() else {
+            return UIImage()
+        }
         UIGraphicsEndImageContext()
         return image.resizableImage(withCapInsets: UIEdgeInsets(top: radius, left: radius, bottom: radius, right: radius))
     }
