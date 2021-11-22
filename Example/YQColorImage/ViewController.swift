@@ -30,12 +30,15 @@ class ViewController: UIViewController {
         self.view.addSubview(imgView2)
         imgView2.center = self.view.center
         
-        let rectangle2 = UIColor.orange.rectangleImage(width: CGSize(width: 200, height: 130), radius: 10, shadowOffset: CGSize(width: -10, height: -10), shadowBlur: 35, shadowColor: UIColor.blue)
+        let rectangle2 = UIColor.orange.rectangleImage(width: CGSize(width: 220, height: 180), radius: 10, shadowOffset: CGSize(width: -10, height: 10), shadowBlur:10, shadowColor: UIColor.red)
         let imgView3 = UIImageView(image: rectangle2)
 //        imgView3.layer.borderColor = UIColor.black.cgColor
 //        imgView3.layer.borderWidth = 1
 //        imgView3.sizeToFit()
+        imgView3.contentMode = .scaleToFill
         self.view.addSubview(imgView3)
+        imgView3.frame = CGRect(origin: .zero, size: CGSize(width: 300, height: 400))
+        
         imgView3.center = self.view.center
     }
 

@@ -74,35 +74,36 @@ extension UIColor {
     ///   - size: 图片大小
     ///   - radius: 圆角大小
     /// - Returns: Image
-    open func rectangleImage(width size: CGSize, radius: CGFloat = 0, shadowOffset: CGSize = CGSize(width: 3, height: 3), shadowBlur: CGFloat = 3, shadowColor: UIColor? = nil) -> UIImage {
+    open func rectangleImage(width size: CGSize, radius: CGFloat = 0, shadowOffset: CGSize = .zero, shadowBlur: CGFloat = 3, shadowColor: UIColor? = nil) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
         guard let context = UIGraphicsGetCurrentContext() else {
             return UIImage()
         }
         setFill()
+        var rect = CGRect(origin: CGPoint.zero, size: size)
         var edgeInsets = UIEdgeInsets.zero
-        let blur = shadowBlur / 2
-        if shadowOffset.width < 0 {
-            edgeInsets.left = abs(shadowOffset.width) + blur
-            let right = shadowOffset.width + blur
-            edgeInsets.right = right > 0 ? right : 0
-        } else {
-            let left = blur - shadowOffset.width
-            edgeInsets.left = left > 0 ? left : 0
-            edgeInsets.right = shadowOffset.width + blur
-        }
-        
-        if shadowOffset.height < 0 {
-            edgeInsets.top = abs(shadowOffset.height) + blur
-            let bottom = shadowOffset.height + blur
-            edgeInsets.bottom = bottom > 0 ? bottom : 0
-        } else {
-            let top = blur - shadowOffset.height
-            edgeInsets.top = top > 0 ? top : 0
-            edgeInsets.bottom = shadowOffset.height + blur
-        }
-        let rect = CGRect(origin: CGPoint.zero, size: size).inset(by: edgeInsets)
         if let shadowColor = shadowColor {
+            let blur = shadowBlur
+            if shadowOffset.width < 0 {
+                edgeInsets.left = abs(shadowOffset.width) + blur
+                let right = shadowOffset.width + blur
+                edgeInsets.right = right > 0 ? right : 0
+            } else {
+                let left = blur - shadowOffset.width
+                edgeInsets.left = left > 0 ? left : 0
+                edgeInsets.right = shadowOffset.width + blur
+            }
+            
+            if shadowOffset.height < 0 {
+                edgeInsets.top = abs(shadowOffset.height) + blur
+                let bottom = shadowOffset.height + blur
+                edgeInsets.bottom = bottom > 0 ? bottom : 0
+            } else {
+                let top = blur - shadowOffset.height
+                edgeInsets.top = top > 0 ? top : 0
+                edgeInsets.bottom = shadowOffset.height + blur
+            }
+            rect = rect.inset(by: edgeInsets)
             context.setShadow(offset: shadowOffset, blur: shadowBlur, color: shadowColor.cgColor)
         }
         if radius == 0 {
@@ -116,7 +117,8 @@ extension UIColor {
             return UIImage()
         }
         UIGraphicsEndImageContext()
-        return image.resizableImage(withCapInsets: UIEdgeInsets(top: radius, left: radius, bottom: radius, right: radius))
+        let capInsets = UIEdgeInsets(top: size.height / 2 - 2, left: size.width / 2 - 2, bottom: size.height / 2 - 2, right: size.width / 2 - 2)
+        return image.resizableImage(withCapInsets: capInsets)
     }
 }
 
