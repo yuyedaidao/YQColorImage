@@ -73,6 +73,7 @@ extension UIColor {
     /// - Parameters:
     ///   - size: 图片大小
     ///   - radius: 圆角大小
+    ///   **注意此方法不适合会缩小的图片且初始大小要充足**
     /// - Returns: Image
     open func rectangleImage(width size: CGSize, radius: CGFloat = 0, shadowOffset: CGSize = .zero, shadowBlur: CGFloat = 3, shadowColor: UIColor? = nil) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
@@ -117,8 +118,8 @@ extension UIColor {
             return UIImage()
         }
         UIGraphicsEndImageContext()
-        let capInsets = UIEdgeInsets(top: size.height / 2 - 2, left: size.width / 2 - 2, bottom: size.height / 2 - 2, right: size.width / 2 - 2)
-        return image.resizableImage(withCapInsets: capInsets)
+        let capInsets = UIEdgeInsets(top: size.height / 2 - 1, left: size.width / 2 - 1, bottom: size.height / 2 - 1, right: size.width / 2 - 1)
+        return image.resizableImage(withCapInsets: capInsets, resizingMode: .stretch)
     }
 }
 
