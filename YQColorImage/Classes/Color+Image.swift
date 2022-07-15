@@ -121,5 +121,30 @@ extension UIColor {
         let capInsets = UIEdgeInsets(top: size.height / 2 - 1, left: size.width / 2 - 1, bottom: size.height / 2 - 1, right: size.width / 2 - 1)
         return image.resizableImage(withCapInsets: capInsets, resizingMode: .stretch)
     }
+    
+    
+    /// 指定圆角颜色其余部分透明的图片
+    /// - Parameters:
+    ///   - radius: 圆角半径
+    ///   - rectCorner: 圆角位置
+    ///   - antialias: 是否去锯齿
+    /// - Returns: Image
+    public func cornerImage(with radius: CGFloat = 5, rectCorner: UIRectCorner = .bottomRight, antialias: Bool = true) -> UIImage {
+        let newSize =  CGSize(width: 1 + 2 * radius, height: 1 + 2 * radius)
+        let rect = CGRect(origin: CGPoint.zero, size: newSize)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, UIScreen.main.scale)
+        let context = UIGraphicsGetCurrentContext()
+        //取消抗锯齿 。。。额，取消之后反而出来的图比较顺滑
+        context?.setShouldAntialias(antialias)
+        setFill()
+        context?.fill(rect)
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: rectCorner, cornerRadii: CGSize(width: radius, height: radius))
+        context?.addPath(path.cgPath)
+        context?.clip()
+        context?.clear(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image.resizableImage(withCapInsets: UIEdgeInsets(top: radius, left: radius, bottom: radius, right: radius))
+    }
 }
 
